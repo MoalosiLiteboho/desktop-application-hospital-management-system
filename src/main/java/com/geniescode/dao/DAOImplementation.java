@@ -1,5 +1,6 @@
 package com.geniescode.dao;
 
+import com.geniescode.authority.Authority;
 import com.geniescode.database.DatabaseConnection;
 import com.geniescode.password.PasswordEncryptor;
 import com.geniescode.user.UserDTO;
@@ -38,6 +39,25 @@ public class DAOImplementation implements DAO{
         } catch(SQLException exception) {
             exception.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Authority> findAllAuthorities() {
+        List<Authority> authorityList = new ArrayList<>();
+        try {
+            PreparedStatement statement = new DatabaseConnection().get().prepareStatement("select * from Authorities");
+            ResultSet result = statement.executeQuery();
+
+            while (result.next())
+                authorityList.add(new Authority(
+                        result.getInt("Id"),
+                        result.getString("Role")
+                ));
+            return authorityList;
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        return null;
     }
 
     @Override
