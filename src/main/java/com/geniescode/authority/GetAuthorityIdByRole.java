@@ -5,15 +5,15 @@ import com.geniescode.dao.DAOImplementation;
 import java.util.List;
 import java.util.function.Function;
 
-public class GetIdByAuthority implements Function<Integer, String> {
+public class GetAuthorityIdByRole implements Function<String, Integer> {
     @Override
-    public String apply(Integer id) {
+    public Integer apply(String role) {
         List<Authority> authorityList = new DAOImplementation().findAllAuthorities();
 
         return authorityList.stream()
-                .filter(authority -> authority.id().equals(id))
+                .filter(authority -> role.equals(authority.role()))
+                .mapToInt(Authority::id)
                 .findFirst()
-                .map(Authority::role)
-                .orElseThrow(() -> new RuntimeException("Role of " + id + " Id is not found!"));
+                .orElseThrow(() -> new RuntimeException("Id of " + role + " is not found!"));
     }
 }
