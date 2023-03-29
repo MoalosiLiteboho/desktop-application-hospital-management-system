@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DaoImplementation implements DAO{
+public class DAOImplementation implements DAO{
 
     @Override
     public void saveUser(UserDetails user) {
