@@ -1,9 +1,10 @@
 package com.geniescode.dao;
 
+import com.geniescode.appointment.Appointment;
 import com.geniescode.authority.Authority;
 import com.geniescode.database.DatabaseConnection;
 import com.geniescode.password.PasswordEncryptor;
-import com.geniescode.user.UserDTO;
+import com.geniescode.user.User;
 import com.geniescode.user.UserDetails;
 
 import java.sql.Date;
@@ -20,7 +21,7 @@ public class DAOImplementation implements DAO{
     public void saveUser(UserDetails user) {
         try {
             PreparedStatement statement = new DatabaseConnection().get().prepareStatement("insert into HospitalSystemDesktopApplication.User(Id, Name, Surname, Gender, DateOfBirth) values (?, ?, ?, ?, ?)");
-            statement.setInt(1, user.Id());
+            statement.setInt(1, user.id());
             statement.setString(2, user.name());
             statement.setString(3, user.surname());
             statement.setString(4, user.gender());
@@ -28,7 +29,7 @@ public class DAOImplementation implements DAO{
 
             statement.executeUpdate();
             statement = new DatabaseConnection().get().prepareStatement("insert into HospitalSystemDesktopApplication.UserAccount(UserId, AuthorityId, Email, Password, Enabled, ExpiryDate) values (?, ?, ?, ?, ?, ?)");
-            statement.setInt(1, user.Id());
+            statement.setInt(1, user.id());
             statement.setInt(2, user.authority());
             statement.setString(3, user.email());
             statement.setString(4, new PasswordEncryptor().apply(user.password()));
@@ -93,7 +94,7 @@ public class DAOImplementation implements DAO{
     }
 
     @Override
-    public void updateUser(UserDTO user) {
+    public void updateUser(User user) {
 
     }
 
@@ -112,5 +113,25 @@ public class DAOImplementation implements DAO{
         }catch (SQLException exception) {
             exception.printStackTrace();
         }
+    }
+
+    @Override
+    public void bookAppointment(Appointment appointment) {
+
+    }
+
+    @Override
+    public void updateAppointment(Appointment appointment) {
+
+    }
+
+    @Override
+    public void deleteAppointmentById(int appointmentId) {
+
+    }
+
+    @Override
+    public List<Appointment> findAllAppointment() {
+        return null;
     }
 }

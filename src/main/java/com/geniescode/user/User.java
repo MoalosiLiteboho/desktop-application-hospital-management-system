@@ -2,7 +2,7 @@ package com.geniescode.user;
 
 import java.time.LocalDate;
 
-public record UserDTO(
+public record User(
         int Id,
         String name,
         String surname,

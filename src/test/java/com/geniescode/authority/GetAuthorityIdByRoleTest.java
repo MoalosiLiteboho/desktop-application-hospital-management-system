@@ -3,7 +3,8 @@ package com.geniescode.authority;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class GetAuthorityIdByRoleTest {
+
+class GetAuthorityIdByRoleTest {
     @Test
     public void testApply() {
         // Test a valid authority
@@ -17,4 +18,3 @@ public class GetAuthorityIdByRoleTest {
         Assertions.assertEquals("Id of customer is not found!", exception.getMessage());
     }
 }
-

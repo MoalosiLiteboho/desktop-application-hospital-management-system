@@ -8,9 +8,8 @@ import java.util.function.Function;
 public class GetAuthorityIdByRole implements Function<String, Integer> {
     @Override
     public Integer apply(String role) {
-        List<Authority> authorityList = new DAOImplementation().findAllAuthorities();
-
-        return authorityList.stream()
+        return new DAOImplementation().findAllAuthorities()
+                .stream()
                 .filter(authority -> role.equals(authority.role()))
                 .mapToInt(Authority::id)
                 .findFirst()

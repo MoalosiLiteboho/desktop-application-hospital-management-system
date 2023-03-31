@@ -2,9 +2,11 @@ package com.geniescode.authority;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
 
-public class GetAuthorityListTest {
+class GetAuthorityListTest {
+
     @Test
     public void testGet() {
         GetAuthorityList getAuthorityList = new GetAuthorityList();
@@ -14,4 +16,3 @@ public class GetAuthorityListTest {
         Assertions.assertTrue(authorities.contains("Admin"));
     }
 }
-
