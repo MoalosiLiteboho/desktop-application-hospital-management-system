@@ -11,37 +11,37 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
-public class AppointmentTable extends Panel {
-    private Table appointmentTable;
+public class UserTable extends Panel {
+    private Table userTable;
     private JScrollPane scrollPane;
 
-    public AppointmentTable() {
+    public UserTable() {
         initComponents();
         initTable();
     }
 
     private void initTable() {
-        appointmentTable.fixTable(scrollPane);
+        userTable.fixTable(scrollPane);
     }
 
     private void initComponents() {
-        JLabel tittle = new JLabel("Appointment Table");
         Panel tablePanel = new Panel();
+        JLabel tittle = new JLabel("User Table");
         scrollPane = new JScrollPane();
-        appointmentTable = new Table();
+        userTable = new Table();
 
-        appointmentTable.setModel(new javax.swing.table.DefaultTableModel(
+        userTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {},
-                new String [] {"#", "Name", "Email", "Position", "Date Join"}) {
+                new String [] {"#", "Name", "Surname", "Gender", "Date Of Birth",  "Email", "Action"}) {
             final boolean[] canEdit = new boolean [] {
-                    false, false, false, false, false
+                    false, false, false, false, false, false, false
             };
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
 
-        scrollPane.setViewportView(appointmentTable);
+        scrollPane.setViewportView(userTable);
 
         tablePanel.setLayout(new BorderLayout());
         tablePanel.add(scrollPane);

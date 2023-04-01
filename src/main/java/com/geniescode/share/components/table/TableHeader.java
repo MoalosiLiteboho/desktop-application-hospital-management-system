@@ -2,11 +2,10 @@ package com.geniescode.share.components.table;
 
 import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.*;
 
 public class TableHeader extends JLabel {
+
     public TableHeader(String text) {
         super(text);
         initComponents();

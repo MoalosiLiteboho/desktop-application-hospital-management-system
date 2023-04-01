@@ -2,77 +2,51 @@ package com.geniescode.share.components.table;
 
 import com.geniescode.share.components.scroll.ScrollBar;
 
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.RowFilter;
+import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
-import java.awt.Color;
-import java.awt.Component;
-import java.util.function.Consumer;
+import java.awt.*;
 
 public class Table extends JTable {
-
     public Table() {
-        initComponents();
-    }
-
-    private void initComponents() {
         setShowHorizontalLines(true);
-        setShowVerticalLines(false);
-        setGridColor(Color.lightGray);
+        setGridColor(new Color(230, 230, 230));
         setRowHeight(40);
         getTableHeader().setReorderingAllowed(false);
         getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() {
             @Override
-            public Component getTableCellRendererComponent(JTable table, Object object, boolean bln, boolean bln1, int i, int i1) {
-                return new TableHeader(object + "");
+            public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
+                return new TableHeader(o + "");
             }
         });
         setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
-            public Component getTableCellRendererComponent(JTable table, Object object, boolean selected, boolean bln1, int i, int i1) {
-                Component component = super.getTableCellRendererComponent(table, object, selected, bln1, i, i1);
-                component.setBackground(Color.white);
+            public Component getTableCellRendererComponent(JTable jtable, Object o, boolean selected, boolean bln1, int i, int i1) {
+                Component com = super.getTableCellRendererComponent(jtable, o, selected, bln1, i, i1);
+                com.setBackground(Color.WHITE);
                 setBorder(noFocusBorder);
-                if (selected)
-                    component.setForeground(Color.green);
-                else
-                    component.setForeground(Color.gray);
-                return component;
+                if (selected) {
+                    com.setForeground(Color.green);
+                } else {
+                    com.setForeground(new Color(102, 102, 102));
+                }
+                return com;
             }
         });
     }
 
-    public Consumer <Object[]> addRowIntoTable = row -> {
+    public void addRow(Object[] row) {
         DefaultTableModel model = (DefaultTableModel) getModel();
         model.addRow(row);
-    };
-
-    public void searchStringOnTable(String searchedWord) {
-        DefaultTableModel model = (DefaultTableModel) getModel();
-        TableRowSorter <DefaultTableModel> tableRows = new TableRowSorter<>(model);
-        setRowSorter(tableRows);
-        tableRows.setRowFilter(RowFilter.regexFilter(searchedWord));
     }
 
-    public Consumer <JScrollPane> setTableFeelGood = scroll -> {
-        JPanel panel = new JPanel();
-
-        panel.setBackground(Color.white);
-
+    public void fixTable(JScrollPane scroll) {
         scroll.setBorder(null);
         scroll.setVerticalScrollBar(new ScrollBar());
-        scroll.getVerticalScrollBar().setBackground(Color.white);
-        scroll.getViewport().setBackground(Color.white);
-        scroll.setCorner(JScrollPane.UPPER_RIGHT_CORNER, panel);
-    };
-
-    public void clearTableData() {
-        DefaultTableModel model = (DefaultTableModel) getModel();
-        model.getDataVector().removeAllElements();
-        revalidate();
+        scroll.getVerticalScrollBar().setBackground(Color.WHITE);
+        scroll.getViewport().setBackground(Color.WHITE);
+        JPanel p = new JPanel();
+        p.setBackground(Color.WHITE);
+        scroll.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
     }
 }
