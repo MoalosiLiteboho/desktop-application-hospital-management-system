@@ -30,8 +30,8 @@ public class UserProfile extends Panel {
     private com.geniescode.share.components.buttons.Button restoreButton;
     private Button savaChangesButton;
 
-    public UserProfile() {
-        userId = 3185922;
+    public UserProfile(int userId) {
+        this.userId = userId;
         initComponents();
         restoreFields();
     }
@@ -47,7 +47,6 @@ public class UserProfile extends Panel {
         savaChangesButton = new Button("Save Changes");
 
         gender.addModels(genderList);
-        gender.setSelectedItem(user.gender());
 
         tittle.setForeground(Color.green);
         tittle.setFont(tittle.getFont().deriveFont(Font.PLAIN, 25));
@@ -65,6 +64,10 @@ public class UserProfile extends Panel {
         setFont(new Font("sanserif", Font.PLAIN, 15));
         setBackground(Color.white);
         addController.accept(this);
+    }
+
+    public int getUserId() {
+        return userId;
     }
 
     public String getAuthority() {

@@ -3,6 +3,7 @@ package com.geniescode.user;
 import com.geniescode.dao.DAOImplementation;
 import com.geniescode.displayMessage.DisplayMessage;
 import com.geniescode.signUp.SignUpFrame;
+import com.geniescode.userProfile.UserProfile;
 
 import java.util.function.Consumer;
 
@@ -14,6 +15,7 @@ public class UserRegistrationPanelService {
     private UserRegistrationPanel registrationPanel;
     private SignUpFrame registration;
     private final String whichPanel;
+    private UserProfile userProfile;
 
 
     public UserRegistrationPanelService(User user, String whichPanel) {
@@ -65,6 +67,8 @@ public class UserRegistrationPanelService {
     private void updateUser() {
         new DAOImplementation().updateUser(user);
         displayMessage.accept(user.id() +  " updated successfully");
+        if (whichPanel.equals("userProfile"))
+            userProfile.restoreFields();
     }
 
     public void setRegistrationPanel(UserRegistrationPanel registrationPanel) {
@@ -73,5 +77,9 @@ public class UserRegistrationPanelService {
 
     public void setSignUp(SignUpFrame registration) {
         this.registration = registration;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
     }
 }

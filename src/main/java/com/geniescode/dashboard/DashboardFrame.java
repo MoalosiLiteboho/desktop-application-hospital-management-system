@@ -3,6 +3,7 @@ package com.geniescode.dashboard;
 import com.geniescode.appointment.AppointmentBookedByReceptionistPanel;
 import com.geniescode.share.components.panel.Panel;
 import com.geniescode.share.components.tittleBar.TittleBarPanel;
+import com.geniescode.userProfile.UserProfile;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JFrame;
