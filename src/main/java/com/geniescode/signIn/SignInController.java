@@ -1,6 +1,6 @@
-package com.geniescode.backend.signIn;
+package com.geniescode.signIn;
 
-import com.geniescode.backend.signUp.SignUpFrame;
+import com.geniescode.signUp.SignUpFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

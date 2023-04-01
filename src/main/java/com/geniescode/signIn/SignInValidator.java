@@ -1,4 +1,4 @@
-package com.geniescode.backend.signIn;
+package com.geniescode.signIn;
 
 import com.geniescode.email.EmailValidator;
 

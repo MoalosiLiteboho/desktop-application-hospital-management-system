@@ -1,12 +1,9 @@
-package com.geniescode.backend.signIn;
+package com.geniescode.signIn;
 
-import com.geniescode.backend.dashboard.DashboardFrame;
+import com.geniescode.dashboard.DashboardFrame;
 import com.geniescode.displayMessage.DisplayMessage;
 
 import java.util.function.Consumer;
-
-import static com.geniescode.backend.signIn.SignInValidator.isPasswordValid;
-import static com.geniescode.backend.signIn.SignInValidator.isUsernameValid;
 
 
 public class SignInService {
@@ -18,8 +15,8 @@ public class SignInService {
     }
 
     public void logInProcess() {
-        String result = isUsernameValid
-                .and(isPasswordValid)
+        String result = SignInValidator.isUsernameValid
+                .and(SignInValidator.isPasswordValid)
                 .apply(credentials);
 
         tryToLogInIfAllFieldAreFilled(result, new DisplayMessage());

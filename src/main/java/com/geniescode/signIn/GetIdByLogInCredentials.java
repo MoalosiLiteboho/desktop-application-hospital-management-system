@@ -1,4 +1,4 @@
-package com.geniescode.backend.signIn;
+package com.geniescode.signIn;
 
 import com.geniescode.dao.DAOImplementation;
 import com.geniescode.user.UserDetails;

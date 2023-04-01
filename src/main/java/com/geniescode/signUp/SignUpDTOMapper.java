@@ -1,4 +1,4 @@
-package com.geniescode.backend.signUp;
+package com.geniescode.signUp;
 
 import com.geniescode.authority.GetAuthorityIdByRole;
 import com.geniescode.date.ExpiryDateGenerator;

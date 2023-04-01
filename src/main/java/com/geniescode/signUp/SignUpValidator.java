@@ -1,4 +1,4 @@
-package com.geniescode.backend.signUp;
+package com.geniescode.signUp;
 
 import com.geniescode.date.DateValidator;
 import com.geniescode.email.EmailTaken;

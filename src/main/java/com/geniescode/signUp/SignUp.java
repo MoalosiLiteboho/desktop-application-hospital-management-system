@@ -1,4 +1,4 @@
-package com.geniescode.backend.signUp;
+package com.geniescode.signUp;
 
 import java.time.LocalDate;
 

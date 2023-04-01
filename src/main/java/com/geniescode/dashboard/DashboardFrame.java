@@ -1,4 +1,4 @@
-package com.geniescode.backend.dashboard;
+package com.geniescode.dashboard;
 
 import com.geniescode.appointment.AppointmentBookingPanel;
 import com.geniescode.share.components.panel.Panel;

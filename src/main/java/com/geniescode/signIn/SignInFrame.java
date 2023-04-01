@@ -1,4 +1,4 @@
-package com.geniescode.backend.signIn;
+package com.geniescode.signIn;
 
 import com.geniescode.share.components.buttons.Button;
 import com.geniescode.share.components.passwordField.PasswordField;

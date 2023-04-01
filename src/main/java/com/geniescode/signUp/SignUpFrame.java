@@ -1,4 +1,4 @@
-package com.geniescode.backend.signUp;
+package com.geniescode.signUp;
 
 import com.geniescode.share.components.buttons.Button;
 import com.geniescode.share.components.comboBox.ComboBox;

@@ -1,4 +1,4 @@
-package com.geniescode.backend.signUp;
+package com.geniescode.signUp;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

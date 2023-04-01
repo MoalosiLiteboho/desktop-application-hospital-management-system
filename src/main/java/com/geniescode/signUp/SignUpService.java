@@ -1,11 +1,11 @@
-package com.geniescode.backend.signUp;
+package com.geniescode.signUp;
 
 import com.geniescode.dao.DAOImplementation;
 import com.geniescode.displayMessage.DisplayMessage;
 
 import java.util.function.Consumer;
 
-import static com.geniescode.backend.signUp.SignUpValidator.*;
+import static com.geniescode.signUp.SignUpValidator.*;
 
 public class SignUpService {
     private final SignUpFrame registration;
