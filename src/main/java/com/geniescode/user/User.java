@@ -3,7 +3,7 @@ package com.geniescode.user;
 import java.time.LocalDate;
 
 public record User(
-        int Id,
+        int id,
         String name,
         String surname,
         String gender,

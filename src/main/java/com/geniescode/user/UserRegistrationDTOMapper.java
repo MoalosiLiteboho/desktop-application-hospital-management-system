@@ -10,7 +10,7 @@ public class UserRegistrationDTOMapper implements Function<User, UserDetails> {
     @Override
     public UserDetails apply(User user) {
         return new UserDetails(
-                user.Id(),
+                user.id(),
                 user.name(),
                 user.surname(),
                 user.gender(),

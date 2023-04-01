@@ -64,7 +64,7 @@ public class UserRegistrationPanelService {
 
     private void updateUser() {
         new DAOImplementation().updateUser(user);
-        displayMessage.accept(user.Id() +  " updated successfully");
+        displayMessage.accept(user.id() +  " updated successfully");
     }
 
     public void setRegistrationPanel(UserRegistrationPanel registrationPanel) {
