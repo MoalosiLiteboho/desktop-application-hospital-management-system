@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-public class UserInsertPanel extends Panel {
+public class UserRegistrationPanel extends Panel {
     private ComboBox<String> authority;
     private final java.util.List<String> genderList = List.of("Male", "Female", "Others");
     private TextField name;
@@ -28,7 +28,7 @@ public class UserInsertPanel extends Panel {
     private com.geniescode.share.components.buttons.Button reset;
     private Button registration;
 
-    public UserInsertPanel() {
+    public UserRegistrationPanel() {
         initComponents();
     }
 
@@ -114,10 +114,10 @@ public class UserInsertPanel extends Panel {
         this.name.setText(null);
     }
 
-    public void addButtonListener(UserInsertController controller) {
+    public void addButtonListener(UserRegistrationController controller) {
         reset.addActionListener(controller);
         registration.addActionListener(controller);
     }
 
-    private final Consumer<UserInsertPanel> addController = UserInsertController::new;
+    private final Consumer<UserRegistrationPanel> addController = UserRegistrationController::new;
 }

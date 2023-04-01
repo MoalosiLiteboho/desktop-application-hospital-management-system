@@ -9,6 +9,6 @@ public record User(
         String gender,
         LocalDate dateOfBirth,
         String email,
-        Integer authority
+        String authority
 ) {
 }

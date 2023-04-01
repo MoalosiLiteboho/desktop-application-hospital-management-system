@@ -3,9 +3,9 @@ package com.geniescode.user;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class FindAllUsers implements Supplier<List<UserDTO>> {
+public class FindAllUsers implements Supplier<List<User>> {
     @Override
-    public List<UserDTO> get() {
+    public List<User> get() {
         return null;
     }
 }

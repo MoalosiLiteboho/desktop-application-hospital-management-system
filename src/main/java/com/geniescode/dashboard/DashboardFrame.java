@@ -1,9 +1,8 @@
 package com.geniescode.dashboard;
 
-import com.geniescode.appointment.AppointmentBookingPanel;
 import com.geniescode.share.components.panel.Panel;
 import com.geniescode.share.components.tittleBar.TittleBarPanel;
-import com.geniescode.user.UserInsertPanel;
+import com.geniescode.user.UserRegistrationPanel;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JFrame;
@@ -22,7 +21,7 @@ public class DashboardFrame extends JFrame {
         Panel rightSide = new Panel();
 
         rightSide.setLayout(new BorderLayout());
-        rightSide.add(new UserInsertPanel());
+        rightSide.add(new UserRegistrationPanel());
         rightSide.setBackground(Color.white);
 
         leftSide.setLayout(new MigLayout("inset 0, gap 0, wrap"));

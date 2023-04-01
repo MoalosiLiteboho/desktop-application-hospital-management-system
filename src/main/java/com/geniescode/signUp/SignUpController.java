@@ -1,5 +1,9 @@
 package com.geniescode.signUp;
 
+import com.geniescode.share.id.UserIdGenerator;
+import com.geniescode.user.User;
+import com.geniescode.user.UserRegistrationPanelService;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,16 +23,19 @@ public class SignUpController implements ActionListener {
     }
 
     private void registrationAction() {
-        new SignUpService(
-                registration,
-                new SignUp(
+        UserRegistrationPanelService registrationService = new UserRegistrationPanelService(
+                new User(
+                        new UserIdGenerator().get(),
                         registration.getName(),
                         registration.getSurname(),
                         registration.getGender(),
                         registration.getDateOfBirth(),
-                        registration.getEmail()
-                )
-        );
+                        registration.getEmail(),
+                        "Patient"
+                ),
+                "signUp");
+        registrationService.setSignUp(registration);
+        registrationService.registrationProcess();
     }
 
     private void logInAction() {
