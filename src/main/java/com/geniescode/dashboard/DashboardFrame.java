@@ -13,16 +13,19 @@ import java.awt.Dimension;
 
 public class DashboardFrame extends JFrame {
     private Menu menu;
+    private Panel rightSide;
+    private final int userId;
 
     public DashboardFrame(int userId) {
+        this.userId = userId;
         initComponents();
-        new DashboardController(this, userId);
+        new DashboardController(this, this.userId);
     }
 
     private void initComponents() {
         Panel background = new Panel();
         Panel leftSide = new Panel();
-        Panel rightSide = new Panel();
+        rightSide = new Panel();
         Panel menuPanel = new Panel();
         menu = new Menu();
 
@@ -54,5 +57,13 @@ public class DashboardFrame extends JFrame {
 
     public Menu getMenu(){
         return menu;
+    }
+
+    public Panel getRightSide() {
+        return rightSide;
+    }
+
+    public int getUserId() {
+        return userId;
     }
 }
