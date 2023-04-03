@@ -23,7 +23,7 @@ public class DashboardService {
         switch (menuName) {
             case "Dashboard" -> addForm(new DashboardForm());
             case "UsersList" -> addForm(new UsersList());
-            case "DoctorPatientList" -> addForm(new DoctorPatientList());
+            case "DoctorPatientList" -> addForm(new DoctorPatientList(frame.getUserId()));
             case "Profile" -> addForm(new UserProfile(frame.getUserId()));
             case "AdminAppointments" -> addForm(new AdminAppointments());
             case "DoctorAppointments" -> addForm(new DoctorAppointments());
