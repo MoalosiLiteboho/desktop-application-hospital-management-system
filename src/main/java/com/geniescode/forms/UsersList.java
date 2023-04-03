@@ -1,5 +1,6 @@
 package com.geniescode.forms;
 
+import com.geniescode.share.components.buttons.Button;
 import com.geniescode.share.components.panel.Panel;
 import com.geniescode.share.components.table.Table;
 import com.geniescode.user.FindAllUsers;
@@ -12,6 +13,8 @@ import java.awt.*;
 public class UsersList extends Panel {
     private Table userTable;
     private JScrollPane scrollPane;
+    private Button addUserButton;
+
     public UsersList() {
         initComponents();
         initTable();
@@ -25,6 +28,7 @@ public class UsersList extends Panel {
     private void initComponents() {
         Panel tablePanel = new Panel();
         JLabel tittle = new JLabel("User Table");
+        addUserButton = new Button("Add User");
         scrollPane = new JScrollPane();
         userTable = new Table();
 
@@ -43,6 +47,7 @@ public class UsersList extends Panel {
 
         tablePanel.setLayout(new BorderLayout());
         tablePanel.add(scrollPane);
+        tablePanel.setBottomLine(Color.green, new Color(0x4A00FF00, true));
 
         tittle.setHorizontalAlignment(SwingConstants.CENTER);
         tittle.setFont(tittle.getFont().deriveFont(Font.PLAIN, 25));
@@ -50,6 +55,7 @@ public class UsersList extends Panel {
 
         setLayout(new MigLayout("inset 0, gap 0, wrap"));
         add(tittle, "width 100%, gap top 25px");
+        add(addUserButton, "gap left 30px, gap top 25px, gap bottom 15px, width 150px, height 35px");
         add(tablePanel, "gap left  30px, gap right 30px, width 100%, gap top 35px, gap bottom 35px, height 100%");
         setBackground(Color.white);
         setFont(new Font("sanserif", Font.PLAIN, 15));
@@ -58,5 +64,9 @@ public class UsersList extends Panel {
     public void populateTable() {
         new FindAllUsers().get()
                 .forEach(user -> userTable.addRow(new Object[] {user.id(), user.name(), user.surname(), user.gender(), user.dateOfBirth(), user.email(), user.authority()}));
+    }
+
+    public Button getAddUserButton() {
+        return addUserButton;
     }
 }

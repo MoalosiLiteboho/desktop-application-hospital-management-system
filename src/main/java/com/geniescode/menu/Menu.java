@@ -1,6 +1,8 @@
 package com.geniescode.menu;
 
 import com.geniescode.share.components.scroll.ScrollBar;
+import javaswingdev.GoogleMaterialDesignIcon;
+import javaswingdev.GoogleMaterialIcon;
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
@@ -48,47 +50,48 @@ public class Menu extends JPanel {
         addTitle("ADMIN");
         addTitle(userName);
         addTitle("Home Page");
-        addMenu("Dashboard", "Dashboard");
-        addMenu("My Profile", "Profile");
-        addMenu("Users List", "UsersList");
-        addMenu("Appointments List", "AdminAppointments");
-        addMenu("LogOut", "LogOut");
+        addMenu("Dashboard", GoogleMaterialDesignIcon.DASHBOARD, "Dashboard");
+        addMenu("My Profile", GoogleMaterialDesignIcon.PERSON, "Profile");
+        addMenu("Users List", GoogleMaterialDesignIcon.LIST, "UsersList");
+        addMenu("Appointments List", GoogleMaterialDesignIcon.LIST, "AdminAppointments");
+        addMenu("LogOut", GoogleMaterialDesignIcon.ARROW_BACK, "LogOut");
     }
     public void initDoctor(MenuEvent event, String userName) {
         this.event = event;
         addTitle("DOCTOR");
         addTitle(userName);
-        addMenu("Dashboard", "Dashboard");
-        addMenu("My Profile", "Profile");
-        addMenu("Patient List", "DoctorPatientList");
-        addMenu("Appointments List", "DoctorAppointments");
-        addMenu("LogOut", "LogOut");
+        addMenu("Dashboard", GoogleMaterialDesignIcon.DASHBOARD, "Dashboard");
+        addMenu("My Profile", GoogleMaterialDesignIcon.PERSON, "Profile");
+        addMenu("Patient List", GoogleMaterialDesignIcon.LIST, "DoctorPatientList");
+        addMenu("Appointments List", GoogleMaterialDesignIcon.LIST, "DoctorAppointments");
+        addMenu("LogOut", GoogleMaterialDesignIcon.ARROW_BACK, "LogOut");
     }
 
     public void initReceptionist(MenuEvent event, String userName) {
         this.event = event;
         addTitle("RECEPTIONIST");
         addTitle(userName);
-        addMenu("Dashboard", "Dashboard");
-        addMenu("My Profile", "Profile");
-        addMenu("All Appointments", "ReceptionistAppointment");
-        addMenu("LogOut", "LogOut");
+        addMenu("Dashboard", GoogleMaterialDesignIcon.DASHBOARD, "Dashboard");
+        addMenu("My Profile", GoogleMaterialDesignIcon.PERSON, "Profile");
+        addMenu("All Appointments", GoogleMaterialDesignIcon.LIST, "ReceptionistAppointment");
+        addMenu("LogOut", GoogleMaterialDesignIcon.ARROW_BACK, "LogOut");
     }
 
     public void initPatient(MenuEvent event, String userName) {
         this.event = event;
         addTitle("PATIENT");
         addTitle(userName);
-        addMenu("Dashboard", "Dashboard");
-        addMenu("My Profile", "Profile");
-        addMenu("Appointments", "PatientAppointments");
-        addMenu("LogOut", "LogOut");
+        addMenu("Dashboard", GoogleMaterialDesignIcon.DASHBOARD, "Dashboard");
+        addMenu("My Profile", GoogleMaterialDesignIcon.PERSON, "Profile");
+        addMenu("Appointments", GoogleMaterialDesignIcon.LIST, "PatientAppointments");
+        addMenu("LogOut", GoogleMaterialDesignIcon.ARROW_BACK, "LogOut");
     }
 
 
 
-    private void addMenu (String label, String menuName) {
+    private void addMenu (String label, GoogleMaterialDesignIcon icon, String menuName) {
         MenuButton menu = new MenuButton();
+        menu.setIcon(new GoogleMaterialIcon(icon, null, Color.gray, Color.gray, 20).toIcon());
         setFont(menu.getFont().deriveFont(Font.PLAIN, 14));
         menu.setText(label);
 
@@ -106,10 +109,12 @@ public class Menu extends JPanel {
 
     private JScrollPane createScroll() {
         JScrollPane scroll = new JScrollPane();
+
         scroll.setBorder(null);
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scroll.setVerticalScrollBar(new ScrollBar());
+
         return scroll;
     }
 
@@ -118,14 +123,17 @@ public class Menu extends JPanel {
 
         panel.setOpaque(false);
         panel.setLayout(new MigLayout("wrap,fillx,inset 0,gapy 0", "[fill]"));
+
         return panel;
     }
 
     public void addTitle(String title) {
         JLabel label = new JLabel(title);
+
         label.setBorder(new EmptyBorder(15, 20, 5, 5));
         label.setFont(label.getFont().deriveFont(Font.BOLD));
         label.setForeground(new Color(170, 170, 170));
+
         panelMenu.add(label);
     }
 
