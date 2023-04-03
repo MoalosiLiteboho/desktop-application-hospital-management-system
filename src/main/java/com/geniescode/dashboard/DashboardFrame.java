@@ -1,11 +1,9 @@
 package com.geniescode.dashboard;
 
-import com.geniescode.appointment.AppointmentBookedByReceptionistPanel;
+import com.geniescode.menu.Menu;
 import com.geniescode.share.components.panel.Panel;
 import com.geniescode.share.components.tittleBar.TittleBarPanel;
-import com.geniescode.tables.AppointmentTable;
 import com.geniescode.tables.UserTable;
-import com.geniescode.userProfile.UserProfile;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JFrame;
@@ -14,14 +12,24 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 public class DashboardFrame extends JFrame {
+    private Menu menu;
+
     public DashboardFrame() {
         initComponents();
+        DashboardController controller = new DashboardController(this);
+        controller.init();
     }
 
     private void initComponents() {
         Panel background = new Panel();
         Panel leftSide = new Panel();
         Panel rightSide = new Panel();
+        Panel menuPanel = new Panel();
+        menu = new Menu();
+
+        menuPanel.setLayout(new BorderLayout());
+        menuPanel.add(menu);
+        menuPanel.setBackground(Color.gray);
 
         rightSide.setLayout(new BorderLayout());
         rightSide.add(new UserTable());
@@ -29,7 +37,7 @@ public class DashboardFrame extends JFrame {
 
         leftSide.setLayout(new MigLayout("inset 0, gap 0, wrap"));
         leftSide.add(new TittleBarPanel(this), "width 100%, height 70px");
-//        leftSide.add(menuPanel, "width 100%, height 100%");
+        leftSide.add(menuPanel, "width 100%, height 100%");
         leftSide.setBackground(Color.white);
 
         background.setLayout(new MigLayout("inset 0px, gap 0px, filly"));
@@ -43,5 +51,9 @@ public class DashboardFrame extends JFrame {
         setUndecorated(true);
         setSize(new Dimension(1_000, 600));
         setLocationRelativeTo(null);
+    }
+
+    public Menu getMenu(){
+        return menu;
     }
 }
