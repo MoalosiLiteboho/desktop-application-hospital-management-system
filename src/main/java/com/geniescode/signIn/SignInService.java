@@ -1,9 +1,14 @@
 package com.geniescode.signIn;
 
+import com.geniescode.Main;
 import com.geniescode.dashboard.DashboardFrame;
 import com.geniescode.displayMessage.DisplayMessage;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.function.Consumer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class SignInService {
@@ -29,6 +34,19 @@ public class SignInService {
 
     private void logIn() {
         Integer userId = new GetIdByLogInCredentials().apply(credentials);
-        new DashboardFrame().setVisible(true);
+        showDashboardFrame(userId);
+    }
+
+    public static void showDashboardFrame(int userId) {
+        try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels())
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException exception) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, exception);
+        }
+        EventQueue.invokeLater(() -> new DashboardFrame(userId).setVisible(true));
     }
 }

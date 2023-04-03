@@ -1,7 +1,5 @@
 package com.geniescode.user;
 
-import com.geniescode.dao.DAOImplementation;
-
 import java.util.function.Function;
 
 public class GetUserById implements Function<Integer, User> {

@@ -2,10 +2,13 @@ package com.geniescode.share.components.table;
 
 import com.geniescode.share.components.scroll.ScrollBar;
 
-import javax.swing.*;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
 
 public class Table extends JTable {
     public Table() {
@@ -25,11 +28,10 @@ public class Table extends JTable {
                 Component com = super.getTableCellRendererComponent(jtable, o, selected, bln1, i, i1);
                 com.setBackground(Color.WHITE);
                 setBorder(noFocusBorder);
-                if (selected) {
+                if (selected)
                     com.setForeground(Color.green);
-                } else {
+                else
                     com.setForeground(new Color(102, 102, 102));
-                }
                 return com;
             }
         });

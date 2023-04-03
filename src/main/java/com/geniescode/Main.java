@@ -18,6 +18,6 @@ public class Main {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException exception) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, exception);
         }
-        EventQueue.invokeLater(() -> new DashboardFrame().setVisible(true));
+        EventQueue.invokeLater(() -> new DashboardFrame(229122517).setVisible(true));
     }
 }
