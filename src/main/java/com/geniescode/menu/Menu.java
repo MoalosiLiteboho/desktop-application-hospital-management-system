@@ -49,8 +49,8 @@ public class Menu extends JPanel {
         addTitle(userName);
         addTitle("Home Page");
         addMenu("Dashboard", "Dashboard");
-        addMenu("Profile", "Profile");
-        addMenu("Users List", "UserList");
+        addMenu("My Profile", "Profile");
+        addMenu("Users List", "UsersList");
         addMenu("Appointments List", "AdminAppointments");
         addMenu("LogOut", "LogOut");
     }
@@ -60,7 +60,7 @@ public class Menu extends JPanel {
         addTitle(userName);
         addMenu("Dashboard", "Dashboard");
         addMenu("My Profile", "Profile");
-        addMenu("Patient List", "PatientList");
+        addMenu("Patient List", "DoctorPatientList");
         addMenu("Appointments List", "DoctorAppointments");
         addMenu("LogOut", "LogOut");
     }
@@ -80,8 +80,8 @@ public class Menu extends JPanel {
         addTitle("PATIENT");
         addTitle(userName);
         addMenu("Dashboard", "Dashboard");
-        addMenu("Profile", "Profile");
-        addMenu("Appointments", "PatientAppointment");
+        addMenu("My Profile", "Profile");
+        addMenu("Appointments", "PatientAppointments");
         addMenu("LogOut", "LogOut");
     }
 
