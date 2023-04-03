@@ -12,7 +12,7 @@ public class DashboardController implements MenuEvent {
     public DashboardController(DashboardFrame dashboardFrame, int userId) {
         this.dashboardFrame = dashboardFrame;
         this.userId = userId;
-        service = new DashboardService();
+        service = new DashboardService(this.dashboardFrame);
         init();
     }
 
