@@ -3,7 +3,7 @@ package com.geniescode.dashboard;
 import com.geniescode.menu.Menu;
 import com.geniescode.share.components.panel.Panel;
 import com.geniescode.share.components.tittleBar.TittleBarPanel;
-import com.geniescode.tables.UserTable;
+import com.geniescode.forms.UsersList;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JFrame;
@@ -34,7 +34,7 @@ public class DashboardFrame extends JFrame {
         menuPanel.setBackground(Color.gray);
 
         rightSide.setLayout(new BorderLayout());
-        rightSide.add(new UserTable());
+        rightSide.add(new UsersList());
         rightSide.setBackground(Color.white);
 
         leftSide.setLayout(new MigLayout("inset 0, gap 0, wrap"));
