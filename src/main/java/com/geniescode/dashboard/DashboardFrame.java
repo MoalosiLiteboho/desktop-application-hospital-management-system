@@ -1,6 +1,7 @@
 package com.geniescode.dashboard;
 
 import com.geniescode.menu.Menu;
+import com.geniescode.share.components.glasspanepopup.GlassPanePopup;
 import com.geniescode.share.components.panel.Panel;
 import com.geniescode.share.components.tittleBar.TittleBarPanel;
 import com.geniescode.forms.UsersList;
@@ -19,6 +20,7 @@ public class DashboardFrame extends JFrame {
     public DashboardFrame(int userId) {
         this.userId = userId;
         initComponents();
+        GlassPanePopup.install(this);
         new DashboardController(this, this.userId);
     }
 

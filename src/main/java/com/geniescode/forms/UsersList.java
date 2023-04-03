@@ -9,6 +9,7 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.function.Consumer;
 
 public class UsersList extends Panel {
     private Table userTable;
@@ -59,6 +60,7 @@ public class UsersList extends Panel {
         add(tablePanel, "gap left  30px, gap right 30px, width 100%, gap top 35px, gap bottom 35px, height 100%");
         setBackground(Color.white);
         setFont(new Font("sanserif", Font.PLAIN, 15));
+        addController.accept(this);
     }
 
     public void populateTable() {
@@ -69,4 +71,10 @@ public class UsersList extends Panel {
     public Button getAddUserButton() {
         return addUserButton;
     }
+
+    public void addUserListController(UserListController controller) {
+        addUserButton.addActionListener(controller);
+    }
+
+    private final Consumer<UsersList> addController = UserListController::new;
 }
