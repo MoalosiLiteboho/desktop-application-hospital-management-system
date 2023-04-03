@@ -14,10 +14,9 @@ import java.awt.Dimension;
 public class DashboardFrame extends JFrame {
     private Menu menu;
 
-    public DashboardFrame() {
+    public DashboardFrame(int userId) {
         initComponents();
-        DashboardController controller = new DashboardController(this);
-        controller.init();
+        new DashboardController(this, userId);
     }
 
     private void initComponents() {
